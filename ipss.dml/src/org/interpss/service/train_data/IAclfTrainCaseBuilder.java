@@ -36,7 +36,7 @@ import com.interpss.core.datatype.Mismatch;
  * @author Mike
  *
  */ 
-public interface ITrainCaseBuilder {
+public interface IAclfTrainCaseBuilder {
 	/**
 	 * Bus data structure to hold cached base case bus data
 	 *

@@ -2,7 +2,7 @@ package org.interpss.service.train_data.singleNet.aclf.load_change_random;
 
 import java.util.Random;
 
-import org.interpss.service.train_data.ITrainCaseBuilder.BusData;
+import org.interpss.service.train_data.IAclfTrainCaseBuilder.BusData;
 import org.interpss.service.train_data.singleNet.aclf.load_change.BaseLoadChangeTrainCaseBuilder;
 
 import com.interpss.core.aclf.AclfBus;

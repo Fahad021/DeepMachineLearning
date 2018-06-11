@@ -39,7 +39,7 @@ import org.interpss.numeric.exp.IpssNumericException;
 import org.interpss.pssl.simu.IpssAclf;
 import org.interpss.pssl.simu.IpssDclf;
 import org.interpss.pssl.simu.IpssDclf.DclfAlgorithmDSL;
-import org.interpss.service.train_data.ITrainCaseBuilder;
+import org.interpss.service.train_data.IAclfTrainCaseBuilder;
 import org.interpss.service.util.NetCaseLoader;
 
 import com.interpss.CoreObjectFactory;
@@ -61,7 +61,7 @@ import com.interpss.core.dclf.solver.HashMapCacheDclfSolver;
  * 
  */ 
  
-public abstract class BaseAclfTrainCaseBuilder implements ITrainCaseBuilder {
+public abstract class BaseAclfTrainCaseBuilder implements IAclfTrainCaseBuilder {
 	/** AclfNetwork object*/
 	protected AclfNetwork aclfNet;
 	

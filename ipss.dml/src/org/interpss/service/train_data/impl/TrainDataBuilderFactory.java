@@ -26,7 +26,7 @@
 
 package org.interpss.service.train_data.impl;
 
-import org.interpss.service.train_data.ITrainCaseBuilder;
+import org.interpss.service.train_data.IAclfTrainCaseBuilder;
 import org.interpss.service.train_data.multiNet.aclf.load_change.MultiNetBusVoltLoadChangeTrainCaseBuilder;
 import org.interpss.service.train_data.singleNet.aclf.load_change.BranchContingencyMaxPLoadChangeTrainCaseBuilder;
 import org.interpss.service.train_data.singleNet.aclf.load_change.BranchPLoadChangeTrainCaseBuilder;
@@ -49,7 +49,7 @@ public class TrainDataBuilderFactory {
 	 * @param buidlername training case builder class name
 	 * @return the builder object
 	 */
-	public static ITrainCaseBuilder createTrainCaseBuilder(String builderName) {
+	public static IAclfTrainCaseBuilder createTrainCaseBuilder(String builderName) {
 		if (builderName.equals("BranchPLoadChangeTrainCaseBuilder"))
 			return new BranchPLoadChangeTrainCaseBuilder();
 		else if (builderName.equals("BranchContingencyMaxPLoadChangeTrainCaseBuilder"))
@@ -73,7 +73,7 @@ public class TrainDataBuilderFactory {
 	 * @param buidlername training case builder class name
 	 * @return the builder object
 	 */
-	public static ITrainCaseBuilder createMultiNetTrainCaseBuilder(String[] aryNames, String builderName) {
+	public static IAclfTrainCaseBuilder createMultiNetTrainCaseBuilder(String[] aryNames, String builderName) {
 		return new MultiNetBusVoltLoadChangeTrainCaseBuilder(aryNames);
 	}	
 }

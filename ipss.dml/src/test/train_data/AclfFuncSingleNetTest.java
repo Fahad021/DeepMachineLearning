@@ -31,7 +31,7 @@ import static org.junit.Assert.assertTrue;
 import java.util.Arrays;
 
 import org.interpss.IpssCorePlugin;
-import org.interpss.service.train_data.ITrainCaseBuilder;
+import org.interpss.service.train_data.IAclfTrainCaseBuilder;
 import org.interpss.service.util.UtilFunction;
 import org.junit.Test;
 
@@ -43,7 +43,7 @@ public class AclfFuncSingleNetTest {
 	public void testSingleNet() throws InterpssException {
 		IpssCorePlugin.init();
 		
-  		ITrainCaseBuilder caseBuilder = UtilFunction.createSingleNetBuilder(
+  		IAclfTrainCaseBuilder caseBuilder = UtilFunction.createSingleNetBuilder(
   				       "testdata/ieee14.ieee", "BusVoltageTrainCaseBuilder");
   		
   		// at this point, the caseBuilder.loadConfigureAclfNet() has been called and the 
@@ -56,17 +56,17 @@ public class AclfFuncSingleNetTest {
 		BusData: Bus3, 1, 0.0, 0.0
 		BusData: Bus11, 2, 0.035, 0.018
   		*/ 
-  		ITrainCaseBuilder.BusData busdata = caseBuilder.getBaseCaseData()[0];
+  		IAclfTrainCaseBuilder.BusData busdata = caseBuilder.getBaseCaseData()[0];
   		assertTrue("", busdata.id.equals("Bus1"));
-  		assertTrue("", busdata.type == ITrainCaseBuilder.BusData.Swing);
+  		assertTrue("", busdata.type == IAclfTrainCaseBuilder.BusData.Swing);
 
   		busdata = caseBuilder.getBaseCaseData()[2];
   		assertTrue("", busdata.id.equals("Bus3"));
-  		assertTrue("", busdata.type == ITrainCaseBuilder.BusData.PV);
+  		assertTrue("", busdata.type == IAclfTrainCaseBuilder.BusData.PV);
 
   		busdata = caseBuilder.getBaseCaseData()[10];
   		assertTrue("", busdata.id.equals("Bus11"));
-  		assertTrue("", busdata.type == ITrainCaseBuilder.BusData.PQ);
+  		assertTrue("", busdata.type == IAclfTrainCaseBuilder.BusData.PQ);
   		assertTrue("", busdata.loadP == 0.035);
   		assertTrue("", busdata.loadQ == 0.018);
   		
@@ -84,7 +84,7 @@ public class AclfFuncSingleNetTest {
 	public void testSingleNet1() throws InterpssException {
 		IpssCorePlugin.init();
 		
-  		ITrainCaseBuilder caseBuilder = UtilFunction.createSingleNetBuilder(
+  		IAclfTrainCaseBuilder caseBuilder = UtilFunction.createSingleNetBuilder(
   				"testdata/ieee14.ieee", "BusVoltageTrainCaseBuilder",
   				"testdata/ieee14_busid2no.mapping", "testdata/ieee14_branchid2no.mapping");
   		 
@@ -103,7 +103,7 @@ public class AclfFuncSingleNetTest {
 	public void testSingleNet_NNLF() throws InterpssException {
 		IpssCorePlugin.init();
 		
-  		ITrainCaseBuilder caseBuilder = UtilFunction.createSingleNetBuilder(
+  		IAclfTrainCaseBuilder caseBuilder = UtilFunction.createSingleNetBuilder(
   				       "testdata/ieee14.ieee", "NNLFLoadChangeTrainCaseBuilder");
   		
   		caseBuilder.createTestCase();
@@ -120,7 +120,7 @@ public class AclfFuncSingleNetTest {
 	public void testSingleRandomNet() throws InterpssException {
 		IpssCorePlugin.init();
 		
-  		ITrainCaseBuilder caseBuilder = UtilFunction.createSingleNetBuilder("testdata/ieee14.ieee", "BusVoltLoadChangeRandomTrainCaseBuilder");
+  		IAclfTrainCaseBuilder caseBuilder = UtilFunction.createSingleNetBuilder("testdata/ieee14.ieee", "BusVoltLoadChangeRandomTrainCaseBuilder");
   		 
   		caseBuilder.createTestCase();
   		double[] netPQ = caseBuilder.getNetInput();

@@ -30,7 +30,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.interpss.IpssCorePlugin;
 import org.interpss.service.pattern.NetOptPattern;
-import org.interpss.service.train_data.ITrainCaseBuilder;
+import org.interpss.service.train_data.IAclfTrainCaseBuilder;
 import org.interpss.service.train_data.multiNet.IMultiNetTrainCaseBuilder;
 import org.interpss.service.util.UtilFunction;
 import org.junit.Test;
@@ -43,7 +43,7 @@ public class AclfFuncMultiNetTest {
 	public void testNetOptPattern() throws InterpssException {
 		IpssCorePlugin.init();
 		
-  		ITrainCaseBuilder caseBuilder = UtilFunction.createMultiNetBuilder("testdata/ieee14.ieee, testdata/ieee14-1.ieee", 
+  		IAclfTrainCaseBuilder caseBuilder = UtilFunction.createMultiNetBuilder("testdata/ieee14.ieee, testdata/ieee14-1.ieee", 
   				"BusVoltageTrainCaseBuilder",
   				"testdata/ieee14_busid2no.mapping", 
   				"testdata/ieee14_branchid2no.mapping",
@@ -63,7 +63,7 @@ public class AclfFuncMultiNetTest {
 	public void testMultiNet() throws InterpssException {
 		IpssCorePlugin.init();
 		
-  		ITrainCaseBuilder caseBuilder = UtilFunction.createMultiNetBuilder("testdata/ieee14.ieee, testdata/ieee14-1.ieee", 
+  		IAclfTrainCaseBuilder caseBuilder = UtilFunction.createMultiNetBuilder("testdata/ieee14.ieee, testdata/ieee14-1.ieee", 
   				"BusVoltageTrainCaseBuilder",
   				"testdata/ieee14_busid2no.mapping", 
   				"testdata/ieee14_branchid2no.mapping",
@@ -103,7 +103,7 @@ public class AclfFuncMultiNetTest {
 	public void testMultiNetDir() throws InterpssException {
 		IpssCorePlugin.init();
 		
-  		ITrainCaseBuilder caseBuilder = UtilFunction.createMultiNetBuilder("testdata/cases", 
+  		IAclfTrainCaseBuilder caseBuilder = UtilFunction.createMultiNetBuilder("testdata/cases", 
   				"BusVoltageTrainCaseBuilder",
   				"testdata/ieee14_busid2no.mapping", 
   				"testdata/ieee14_branchid2no.mapping",

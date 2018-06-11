@@ -35,7 +35,7 @@ import java.util.List;
 
 import org.interpss.pssl.plugin.IpssAdapter;
 import org.interpss.service.pattern.NetOptPattern;
-import org.interpss.service.train_data.ITrainCaseBuilder;
+import org.interpss.service.train_data.IAclfTrainCaseBuilder;
 import org.interpss.service.train_data.impl.TrainDataBuilderFactory;
 import org.interpss.service.train_data.multiNet.IMultiNetTrainCaseBuilder;
 

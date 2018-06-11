@@ -32,7 +32,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.interpss.service.pattern.NetOptPattern;
-import org.interpss.service.train_data.ITrainCaseBuilder;
+import org.interpss.service.train_data.IAclfTrainCaseBuilder;
 import org.interpss.service.train_data.impl.TrainDataBuilderFactory;
 import org.interpss.service.train_data.multiNet.IMultiNetTrainCaseBuilder;
 
@@ -134,7 +134,7 @@ public class UtilFunction {
 	 * @return
 	 * @throws InterpssException
 	 */
-	public static ITrainCaseBuilder createSingleNetBuilder(String filename, String buildername) throws InterpssException {
+	public static IAclfTrainCaseBuilder createSingleNetBuilder(String filename, String buildername) throws InterpssException {
 		return 	createSingleNetBuilder(filename, buildername, null, null);
 	}
 	
@@ -148,9 +148,9 @@ public class UtilFunction {
 	 * @return
 	 * @throws InterpssException
 	 */
-	public static ITrainCaseBuilder createSingleNetBuilder(String filename, String buildername, 
+	public static IAclfTrainCaseBuilder createSingleNetBuilder(String filename, String buildername, 
 	           		String busIdMappingFile, String branchIdMappingFile) throws InterpssException {
-		ITrainCaseBuilder trainCaseBuilder = TrainDataBuilderFactory.createTrainCaseBuilder(buildername);
+		IAclfTrainCaseBuilder trainCaseBuilder = TrainDataBuilderFactory.createTrainCaseBuilder(buildername);
 
 		// load busId/BranchId mapping files, if exist. trainCaseBuilder.noBus, trainCaseBuilder.noBranch
 		// are calculated in the loading process
@@ -179,10 +179,10 @@ public class UtilFunction {
 	 * @return
 	 * @throws InterpssException
 	 */
-	public static ITrainCaseBuilder createMultiNetBuilder(String filenames, String buildername, 
+	public static IAclfTrainCaseBuilder createMultiNetBuilder(String filenames, String buildername, 
 	           String busIdMappingFile, String branchIdMappingFile, String netOptPatternFile) throws InterpssException {
 		String[] aryNmes = UtilFunction.getFilenames(filenames);
-		ITrainCaseBuilder trainCaseBuilder = TrainDataBuilderFactory.createMultiNetTrainCaseBuilder(aryNmes, buildername);
+		IAclfTrainCaseBuilder trainCaseBuilder = TrainDataBuilderFactory.createMultiNetTrainCaseBuilder(aryNmes, buildername);
 
 		trainCaseBuilder.createBusId2NoMapping(busIdMappingFile);
 		trainCaseBuilder.createBranchId2NoMapping(branchIdMappingFile);
