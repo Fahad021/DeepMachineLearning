@@ -55,10 +55,7 @@ b = tf.Variable(tf.zeros([size]))
 # define model
 
 def nn_model(data):
-    #l1 = tf.matmul(data, W1) + b1
-    #l2 = tf.matmul(l1, W2) + b2
-    output = tf.matmul(data, W) + b
-    return output
+    return tf.matmul(data, W) + b
 
 # define loss 
 x = tf.placeholder(tf.float32, [None, size + noPattern])

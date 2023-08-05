@@ -55,8 +55,7 @@ init = tf.initialize_all_variables()
 # define model
 
 def nn_model(data):
-    output = tf.matmul(data, W1) + b1
-    return output
+    return tf.matmul(data, W1) + b1
 
 # define loss 
 x = tf.placeholder(tf.float32, [None, size])
